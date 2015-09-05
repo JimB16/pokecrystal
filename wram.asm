@@ -2862,3 +2862,113 @@ SECTION "Boxes 8-14", SRAM, BANK [3]
 	box sBox12
 	box sBox13
 	box sBox14
+
+SRAMBANK4 EQU 4
+SRAMBANK5 EQU 5
+SRAMBANK6 EQU 6
+SRAMBANK7 EQU 7
+
+GLOBAL SRAMBANK4, SRAMBANK5, SRAMBANK6, SRAMBANK7
+
+; SRAMBANK4
+RSSET $A000 ; 
+s4_A000			RB   $7			; $a000
+s4_A007			RB   $C			;
+s4_A013			RB   $24		;
+
+GLOBAL s4_A000, s4_A007, s4_A013
+
+; SRAMBANK5
+RSSET $A000 ; 
+s5_A000			RB   $800		; $a000
+s5_A800			RB   $1			; $a000 + $0a4a = $aa4a
+s5_A801			RB   $1E		;
+s5_A81F			RB   $1			;
+s5_A820			RB   $1			;
+s5_A821			RB   $1			;
+s5_A822			RB   $1			;
+s5_A823			RB   $1			;
+s5_A824			RB   $1			;
+s5_A825			RB   $1			;
+s5_A826			RB   $1			;
+s5_A827			RB   $5			;
+s5_A82C			RB   $6			;
+s5_A832			RB   $F			;
+s5_A841			RB   $1B		;
+s5_A85C			RB   $5			;
+s5_A861			RB   $2F		;
+s5_A890			RB   $1			;
+s5_A891			RB   $1			;
+s5_A892			RB   $1			;
+s5_A893			RB   $1			;
+s5_A894			RB   $6			;
+s5_A89A			RB   $1			;
+s5_A89B			RB   $1			;
+s5_A89C			RB   $16		;
+s5_A8B2			RB   $96		;
+s5_A948			RB   $F6		;
+s5_AA3E			RB   $3			;
+s5_AA41			RB   $4			;
+s5_AA45			RB   $2			;
+s5_AA47			RB   $1			;
+s5_AA48			RB   $2			;
+s5_AA4A			RB   $1			; $a000 + $0a4a = $aa4a
+s5_AA4B			RB   $1			;
+s5_AA4C			RB   $10		;
+s5_AA5C			RB   $1			;
+s5_AA5D			RB   $4			;
+s5_AA61			RB   $11		;
+s5_AA72			RB   $1			;
+s5_AA73			RB   $C			;
+s5_AA7F			RB   $C			;
+s5_AA8B			RB   $1			;
+s5_AA8C			RB   $1			;
+s5_AA8D			RB   $1			;
+s5_AA8E			RB   $594		;
+s5_B022			RB   $1			;
+s5_B023			RB   $69		;
+s5_B08C			RB   $4			;
+s5_B090			RB   $1			;
+s5_B091			RB   $1			;
+s5_B092			RB   $1F		;
+s5_B0B1			RB   $100		;
+s5_B1B1			RB   $1			;
+s5_B1B2			RB   $1			;
+s5_B1B3			RB   $1			;
+s5_B1B4			RB   $1F		;
+s5_B1D3			RB   $20		;
+s5_B1F3			RB   $8			;
+s5_B1FB			RB   $F8		;
+s5_B2F3			RB   $1			;
+s5_B2F4			RB   $5			;
+s5_B2F9			RB   $1			;
+s5_B2FA			RB   $1			;
+s5_B2FB			RB   $B4A		;
+s5_BE45			RB   $1			;
+s5_BE46			RB   $1			;
+s5_BE47			RB   $1B8		;
+s5_BFFF			RB   $1			; $a000 + $1fff = $bfff
+
+GLOBAL s5_A000, s5_A800, s5_A801, s5_A81F, s5_A820, s5_A821, s5_A822, s5_A823, s5_A824, s5_A825, s5_A826, s5_A827, s5_A82C, s5_A832, s5_A841, s5_A85C, s5_A861, s5_A890, s5_A891, s5_A892, s5_A893, s5_A894, s5_A89A, s5_A89B, s5_A89C, s5_A8B2, s5_A948, s5_AA3E, s5_AA41, s5_AA45, s5_AA47, s5_AA48, s5_AA4A, s5_AA4B, s5_AA4C, s5_AA5C, s5_AA5D, s5_AA61, s5_AA72, s5_AA73, s5_AA7F, s5_AA8B, s5_AA8C, s5_AA8D, s5_AA8E, s5_B023, s5_B08C, s5_B090, s5_B091, s5_B092, s5_B0B1, s5_B1B1, s5_B1B2, s5_B1B3, s5_B1B4, s5_B1D3, s5_B1F3, s5_B1FB, s5_B2F3, s5_B2F4, s5_B2F9, s5_B2FA, s5_B2FB, s5_BE45, s5_BE46, s5_BE47, s5_BFFF
+
+; SRAMBANK6
+RSSET $A000 ; 
+s6_A000			RB   $2			; $a000
+s6_A002			RB   $1			;
+s6_A003			RB   $1			;
+s6_A004			RB   $1			;
+s6_A005			RB   $1			;
+s6_A006			RB   $1			;
+s6_A007			RB   $FF9		;
+s6_B000			RB   $FEA		;
+s6_BFEA			RB   $10		;
+
+GLOBAL s6_A000, s6_A002, s6_A003, s6_A004, s6_A005, s6_A006, s6_A007, s6_B000, s6_BFEA
+
+; SRAMBANK7
+RSSET $A000 ; 
+s7_A000			RB   $1000		; $a000
+s7_B000			RB   $FEA		;
+s7_BFEA			RB   $10		;
+
+GLOBAL s7_A000, s7_B000, s7_BFEA

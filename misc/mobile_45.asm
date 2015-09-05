@@ -7672,9 +7672,9 @@ Function11766b: ; 11766b (45:766b)
 	ld a, $5
 	ld [rSVBK], a ; $ff00+$70
 	call Function1176ee
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $b1f3
+	ld hl, s5_B1F3
 	ld de, wcd49
 	ld bc, $8
 	call CopyBytes
@@ -7687,10 +7687,10 @@ Function11766b: ; 11766b (45:766b)
 	ret
 
 Function117699: ; 117699 (45:7699)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, wcd49
-	ld de, $b1f3
+	ld de, s5_B1F3
 	ld bc, $8
 	call CopyBytes
 	ld hl, wc708
@@ -8048,12 +8048,12 @@ Function117942: ; 117942 (45:7942)
 	call PlaceString
 	ld a, $1e
 	ld [wcd4e], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [wcd4f]
-	ld [$aa4b], a
+	ld [s5_AA4B], a
 	ld hl, wc708
-	ld de, $aa4c
+	ld de, s5_AA4C
 	ld bc, $11
 	call CopyBytes
 	call CloseSRAM
@@ -8371,10 +8371,10 @@ Function117bb6:
 	push af
 	ld a, $3
 	ld [rSVBK], a
-	ld a, $7
+	ld a, SRAMBANK7
 	call GetSRAMBank
 	ld hl, DefaultFlypoint
-	ld de, $b000
+	ld de, s7_B000
 	ld bc, $1000
 	call CopyBytes
 	call CloseSRAM
@@ -8415,11 +8415,11 @@ Function117c4a:
 	ret
 
 Function117c89:
-	ld a, $7
+	ld a, SRAMBANK7
 	call GetSRAMBank
 	ld l, $0
 	ld h, l
-	ld de, $b000
+	ld de, s7_B000
 	ld bc, $0ffc
 .asm_117c97
 	push bc
@@ -8437,7 +8437,7 @@ Function117c89:
 	ld [wcd83], a
 	ld a, h
 	ld [wcd84], a
-	ld hl, $bfea
+	ld hl, s7_BFEA
 	ld de, wcd69
 	ld bc, $0010
 	call CopyBytes
@@ -8662,10 +8662,10 @@ Function118180: ; 118180
 	ld a, [wcd38]
 	and a
 	ret z
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, wcd69
-	ld de, $a89c
+	ld de, s5_A89C
 	ld bc, $0016
 	call CopyBytes
 	ld a, [rSVBK]
@@ -8681,7 +8681,7 @@ Function118180: ; 118180
 	callba Function17d1e1
 	jr c, .asm_1181d0
 	ld hl, $d202
-	ld de, $a8b2
+	ld de, s5_A8B2
 	ld bc, $0096
 	call CopyBytes
 .asm_1181c9
@@ -8960,21 +8960,21 @@ Function1183cb: ; 1183cb
 	callba Function106464
 	callba Function115d99
 	callba Function11615a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$bfff], a
+	ld [s5_BFFF], a
 	call CloseSRAM
 	ret
 ; 118440
 
 Function118440: ; 118440
 	push af
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$bfff]
+	ld a, [s5_BFFF]
 	inc a
-	ld [$bfff], a
+	ld [s5_BFFF], a
 	call CloseSRAM
 	pop af
 	ret
@@ -9702,9 +9702,9 @@ Function1188c8: ; 1188c8 (46:48c8)
 
 Function1188e7: ; 1188e7 (46:48e7)
 	ld de, wPartyMonMenuIconAnims + 48 + 2
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa4a]
+	ld a, [s5_AA4A]
 	call CloseSRAM
 	and a
 	ret z
@@ -10147,10 +10147,10 @@ Function118d35: ; 118d35
 	sla a
 	add b
 	ld b, a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, b
-	ld [$b2fb], a
+	ld [s5_B2FB], a
 	call CloseSRAM
 	callba Function170be4
 	callba Function1700c4
@@ -10579,7 +10579,7 @@ Function119009:
 ; 119054
 
 Function119054: ; 119054
-	ld a, $6
+	ld a, SRAMBANK6
 	call GetSRAMBank
 	ld hl, DefaultFlypoint
 	ld a, [wcd4f]
@@ -10609,12 +10609,12 @@ Function119054: ; 119054
 	call CloseSRAM
 	ld a, $3
 	ld [rSVBK], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [wcd4f]
-	ld [$b1b3], a
+	ld [s5_B1B3], a
 	ld a, [wcd50]
-	ld [$b1b4], a
+	ld [s5_B1B4], a
 	ld hl, BGMapBuffer
 	ld de, $aa7f
 	ld bc, $000c
@@ -10651,26 +10651,26 @@ Function1190d0: ; 1190d0
 ; 1190ec
 
 Function1190ec: ; 1190ec
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, BGMapBuffer
-	ld de, $aa73
+	ld de, s5_AA73
 	ld bc, $000c
 	call CopyBytes
 	call CloseSRAM
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $1
-	ld [$aa72], a
+	ld [s5_AA72], a
 	call CloseSRAM
-	ld a, $6
+	ld a, SRAMBANK6
 	call GetSRAMBank
 	ld a, [Unkn1Pals]
 	ld c, a
 	ld a, [wd001]
 	ld b, a
 	ld hl, DefaultFlypoint
-	ld de, $a000
+	ld de, s5_A000
 	call Function119192
 	ret c
 	ld a, [wcd89]
@@ -10710,10 +10710,10 @@ Function11915d: ; 11915d
 	ld de, BGMapBuffer
 	ld bc, $000c
 	call CopyBytes
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, BGMapBuffer
-	ld de, $aa7f
+	ld de, s5_AA7F
 	ld c, $c
 .asm_119176
 	ld a, [de]
@@ -10847,10 +10847,10 @@ Function119223: ; 119223
 	xor a
 	ld [wcd4b], a
 	ld [wcd4c], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, wc3cd
-	ld de, $b092
+	ld de, s5_B092
 	ld bc, $001f
 	call CopyBytes
 	dec de
@@ -10866,12 +10866,12 @@ Function119223: ; 119223
 	ld a, [hli]
 	ld [wcd50], a
 	ld a, [hli]
-	ld [$b1b1], a
+	ld [s5_B1B1], a
 	ld c, a
 	ld a, [hli]
-	ld [$b1b2], a
+	ld [s5_B1B2], a
 	ld b, a
-	ld de, $b1d3
+	ld de, s5_B1D3
 	call CopyBytes
 	call CloseSRAM
 	ld e, l
@@ -10955,9 +10955,9 @@ Function119223: ; 119223
 ; 1192cc
 
 Function1192cc: ; 1192cc
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $aa73
+	ld hl, s5_AA73
 	ld de, $c608
 	ld bc, $000c
 	call CopyBytes
@@ -11151,7 +11151,7 @@ Function1193fb:
 ; 119413
 
 Function119413: ; 119413
-	ld a, $6
+	ld a, SRAMBANK6
 	call GetSRAMBank
 	ld a, [Unkn1Pals]
 	ld c, a
@@ -12246,10 +12246,10 @@ Function119b52: ; 119b52
 	ld a, [StringBuffer2 + 10]
 	cp $1
 	jr nz, .asm_119b66
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $4
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 
 .asm_119b66
@@ -12348,10 +12348,10 @@ endr
 .asm_119be3
 	ld a, $19
 	ld [wcf66], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $1
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	xor a
 	ld [StringBuffer2 + 10], a
@@ -12368,18 +12368,18 @@ endr
 	ld a, h
 	cp (wd000 + $800 + $69) / $100
 	jr nz, .asm_119be3
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [wcf64]
-	ld [$b090], a
+	ld [s5_B090], a
 	ld a, [wcf65]
-	ld [$b091], a
+	ld [s5_B091], a
 	ld hl, $d800
-	ld de, $b023
+	ld de, s5_B023
 	ld bc, $0069
 	call CopyBytes
 	ld a, $3
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	ld hl, $d800
 	ld de, $c608
@@ -12414,10 +12414,10 @@ Function119c3e: ; 119c3e
 .asm_119c68
 	ld a, $19
 	ld [wcf66], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $1
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	xor a
 	ld [StringBuffer2 + 10], a
@@ -12789,11 +12789,11 @@ Function119eb4: ; 119eb4 (46:5eb4)
 	ret
 
 Function119ec2: ; 119ec2 (46:5ec2)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$aa5c], a
-	ld de, $aa4c
+	ld [s5_AA5C], a
+	ld de, s5_AA4C
 .asm_119ece
 	ld a, [de]
 	inc de
@@ -12969,19 +12969,19 @@ Function119f98: ; 119f98
 ; 11a00e
 
 Function11a00e: ; 11a00e
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa4b]
+	ld a, [s5_AA4B]
 	and a
 	jr z, .asm_11a02a
-	ld a, [$aa4c]
+	ld a, [s5_AA4C]
 	call CloseSRAM
 	and a
 	ret nz
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$aa4b], a
+	ld [s5_AA4B], a
 
 .asm_11a02a
 	call CloseSRAM
@@ -15744,7 +15744,7 @@ endr
 	and a
 	jr nz, .asm_11b50b
 	ld de, $002f
-	ld hl, $a600
+	ld hl, s0_a600 ; $a600
 	pop af
 .asm_11b51b
 	and a
@@ -15754,7 +15754,7 @@ endr
 	jr .asm_11b51b
 
 .asm_11b522
-	ld a, $0
+	ld a, BANK(s0_a600) ; $0
 	call GetSRAMBank
 	ld a, $2f
 .asm_11b529
@@ -15826,9 +15826,9 @@ Function11b585: ; 11b585
 	call CopyBytes
 	ld a, $1
 	ld [rSVBK], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld de, $a800
+	ld de, s5_A800
 	ld a, $1
 	ld [de], a
 	inc de
@@ -15874,34 +15874,34 @@ Function11b5e7: ; 11b5e7
 Function11b5e8: ; 11b5e8
 	ld a, $0
 	call GetSRAMBank
-	ld hl, wRTC
+	ld hl, wRTC ; d4ba
 	ld de, $c608
 	ld bc, $0004
 	call CopyBytes
 	call CloseSRAM
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld hl, $c608
-	ld de, $b08c
+	ld de, s5_B08C
 	ld bc, $0004
 	call CopyBytes
 	ld a, $2
-	ld [$a800], a
-	ld a, [$a81f]
+	ld [s5_A800], a
+	ld a, [s5_A81F]
 	ld [wcd2a], a
-	ld a, [$a820]
+	ld a, [s5_A820]
 	ld [wcd2b], a
-	ld a, [$a821]
+	ld a, [s5_A821]
 	ld [wcd2c], a
-	ld a, [$a822]
+	ld a, [s5_A822]
 	ld [wcd2d], a
-	ld a, [$a823]
+	ld a, [s5_A823]
 	ld [wcd2e], a
-	ld a, [$a824]
+	ld a, [s5_A824]
 	ld [wcd2f], a
-	ld a, [$a825]
+	ld a, [s5_A825]
 	ld [wcd30], a
-	ld a, [$a826]
+	ld a, [s5_A826]
 	ld [wcd31], a
 	call CloseSRAM
 	call Function11b44b
@@ -15984,7 +15984,7 @@ Function11b6b3: ; 11b6b3
 ; 11b6b4
 
 Function11b6b4: ; 11b6b4
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [wcd30]
 	ld [wc708], a
@@ -16151,10 +16151,10 @@ Function11b7e5: ; 11b7e5
 	xor a
 	ld [InLinkBattle], a
 	callba Function14a58
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $5
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	ld a, [MapGroup]
 	ld b, a
@@ -16178,17 +16178,17 @@ Function11b879: ; 11b879
 	ld a, [ScriptVar]
 	and a
 	ret z
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$a800]
+	ld a, [s5_A800]
 	ld [ScriptVar], a
-	ld a, [$a890]
+	ld a, [s5_A890]
 	ld [wcd49], a
-	ld a, [$a891]
+	ld a, [s5_A891]
 	ld [wcd4a], a
-	ld a, [$a892]
+	ld a, [s5_A892]
 	ld [wcd4b], a
-	ld a, [$a893]
+	ld a, [s5_A893]
 	ld [wcd4c], a
 	call CloseSRAM
 	ld a, [ScriptVar]
@@ -16268,9 +16268,9 @@ Function11b879: ; 11b879
 
 Function11b920: ; 11b920
 	call Function11b44b
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $a81f
+	ld hl, s5_A81F
 	ld de, BattleMonNick + 5
 	ld bc, $0008
 	call CopyBytes
@@ -16280,11 +16280,11 @@ Function11b920: ; 11b920
 ; 11b93b
 
 Function11b93b: ; 11b93b
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$a800], a
-	ld hl, $a823
+	ld [s5_A800], a
+	ld hl, s5_A823 ; $a823
 	ld de, $c608
 	ld bc, $008f
 	call CopyBytes
@@ -16906,9 +16906,9 @@ Function11c1ca: ; 11c1ca
 
 Function11c254: ; 11c254
 	push af
-	ld a, $4
+	ld a, SRAMBANK4
 	call GetSRAMBank
-	ld hl, $a007
+	ld hl, s4_A007
 	pop af
 	sla a
 	sla a
@@ -18348,9 +18348,9 @@ Function11cb66: ; 11cb66 (47:4b66)
 	ld a, [hl]
 	and a
 	jr nz, .asm_11cbd4
-	ld a, $4
+	ld a, SRAMBANK4
 	call GetSRAMBank
-	ld hl, $a007
+	ld hl, s4_A007
 	ld a, [wcfa9]
 	dec a
 	sla a
@@ -22568,33 +22568,33 @@ Function170000: ; 170000
 ; 17005a
 
 Function17005a: ; 17005a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$a824]
+	ld a, [s5_A824]
 	ld [wc702], a
-	ld hl, $a827
+	ld hl, s5_A827
 	ld de, wc719
 	ld bc, $0005
 	call CopyBytes
 	ld a, $50
 	ld [de], a
-	ld hl, $a85c
+	ld hl, s5_A85C
 	ld de, wc724
 	ld bc, $0005
 	call CopyBytes
 	ld a, $50
 	ld [de], a
-	ld hl, $a841
+	ld hl, s5_A841
 	ld a, [hli]
 	ld [wc72f], a
 	ld a, [hl]
 	ld [wc730], a
-	ld hl, $a832
+	ld hl, s5_A832
 	ld a, [hli]
 	ld [wc731], a
 	ld a, [hl]
 	ld [wc732], a
-	ld bc, $a82c
+	ld bc, s5_A82C
 	callba GetCaughtGender
 	ld a, c
 	ld [wc733], a
@@ -22622,18 +22622,18 @@ Function1700c4: ; 1700c4
 	ld a, $3
 	ld [rSVBK], a
 	call Function17042c
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $1
-	ld [$be45], a
+	ld [s5_BE45], a
 	xor a
-	ld [$be46], a
+	ld [s5_BE46], a
 	ld hl, $dffc
-	ld de, $aa41
+	ld de, s5_AA41
 	ld bc, $0004
 	call CopyBytes
 	ld hl, $d202
-	ld de, $aa8e
+	ld de, s5_AA8E
 	ld bc, $0594
 	call CopyBytes
 	ld hl, $aa5d
@@ -22664,9 +22664,9 @@ Function170114: ; 170114
 ; 170121
 
 Function170121: ; 170121
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $a948
+	ld hl, s5_A948
 	ld de, $c608
 	ld bc, $00f6
 	call CopyBytes
@@ -22676,9 +22676,9 @@ Function170121: ; 170121
 ; 170139
 
 Function170139: ; 170139
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld de, $aa41
+	ld de, s5_AA41
 	ld h, $0
 	ld l, h
 	ld bc, $03e8
@@ -22751,19 +22751,19 @@ Function170139: ; 170139
 	pop af
 	dec a
 	jr nz, .asm_1701ac
-	ld a, $4
+	ld a, SRAMBANK4
 	call GetSRAMBank
-	ld hl, $a013
+	ld hl, s4_A013
 	ld bc, $0024
 	call CopyBytes
 	call CloseSRAM
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $a894
+	ld hl, s5_A894
 	ld bc, $0006
 	call CopyBytes
 	ld hl, $c608
-	ld de, $a948
+	ld de, s5_A948
 	ld bc, $00f6
 	call CopyBytes
 	call CloseSRAM
@@ -23013,9 +23013,9 @@ Function170394: ; 170394
 .asm_1703b4
 	ld [CurSpecies], a
 	call GetBaseData
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2fb]
+	ld a, [s5_B2FB]
 	call CloseSRAM
 	ld e, a
 	ld hl, $001f
@@ -23261,15 +23261,15 @@ Jumptable_17051f: ; 17051f
 ; 170525
 
 Function170525: ; 170525
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 
-	ld hl, $a89c
+	ld hl, s5_A89C
 	ld de, StringBuffer3
 	ld bc, $0016
 	call CopyBytes
 
-	ld hl, $a8b2
+	ld hl, s5_A8B2
 	ld de, $c608
 	ld bc, $0096
 	call CopyBytes
@@ -23677,11 +23677,11 @@ asm_17079f: ; 17079f (5c:479f)
 	ret
 
 Function1707ac: ; 1707ac (5c:47ac)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa8c]
+	ld a, [s5_AA8C]
 	ld b, a
-	ld a, [$be46]
+	ld a, [s5_BE46]
 	ld [ScriptVar], a
 	call CloseSRAM
 	and a
@@ -23692,9 +23692,9 @@ Function1707ac: ; 1707ac (5c:47ac)
 	push bc
 	call UpdateTime
 	pop bc
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa8b]
+	ld a, [s5_AA8B]
 	call CloseSRAM
 	ld c, a
 	ld a, [CurDay]
@@ -23718,34 +23718,34 @@ Function1707ac: ; 1707ac (5c:47ac)
 	ld [ScriptVar], a
 
 Function1707f4: ; 1707f4 (5c:47f4)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$be46], a
-	ld [$aa8b], a
-	ld [$aa8c], a
+	ld [s5_BE46], a
+	ld [s5_AA8B], a
+	ld [s5_AA8C], a
 	call CloseSRAM
 	ret
 
 Function170807: ; 170807 (5c:4807)
 	call UpdateTime
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [CurDay]
-	ld [$b2f9], a
+	ld [s5_B2F9], a
 	xor a
-	ld [$b2fa], a
+	ld [s5_B2FA], a
 	call CloseSRAM
 	ret
 
 Function17081d: ; 17081d (5c:481d)
 	xor a
 	ld [ScriptVar], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2f9]
+	ld a, [s5_B2F9]
 	ld c, a
-	ld a, [$b2fa]
+	ld a, [s5_B2FA]
 	ld b, a
 	call CloseSRAM
 	cp $2
@@ -23772,11 +23772,11 @@ Function17081d: ; 17081d (5c:481d)
 .asm_170853
 	ld a, $1
 	ld [ScriptVar], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$b2f9], a
-	ld [$b2fa], a
+	ld [s5_B2F9], a
+	ld [s5_B2FA], a
 	call CloseSRAM
 	ret
 
@@ -23842,19 +23842,19 @@ Function1708b9: ; 1708b9 (5c:48b9)
 
 Function1708c8: ; 1708c8 (5c:48c8)
 	call UpdateTime
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [CurDay]
-	ld [$aa8b], a
+	ld [s5_AA8B], a
 	xor a
-	ld [$aa8c], a
-	ld a, [$aa5d]
+	ld [s5_AA8C], a
+	ld a, [s5_AA5D]
 	cp $2
 	jr nc, .asm_1708ec
 	ld a, [CurDay]
-	ld [$aa48], a
+	ld [s5_AA48], a
 	ld a, $1
-	ld [$aa47], a
+	ld [s5_AA47], a
 .asm_1708ec
 	call CloseSRAM
 	ret
@@ -23863,11 +23863,11 @@ Function1708f0: ; 1708f0 (5c:48f0)
 	xor a
 	ld [ScriptVar], a
 	call UpdateTime
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa48]
+	ld a, [s5_AA48]
 	ld c, a
-	ld a, [$aa47]
+	ld a, [s5_AA47]
 	call CloseSRAM
 	and a
 	ret z
@@ -23875,9 +23875,9 @@ Function1708f0: ; 1708f0 (5c:48f0)
 	ld a, c
 	cp [hl]
 	jr nz, Function170923
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa5d]
+	ld a, [s5_AA5D]
 	call CloseSRAM
 	cp $5
 	ret c
@@ -23887,12 +23887,12 @@ Function1708f0: ; 1708f0 (5c:48f0)
 
 
 Function170923: ; 170923
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$aa48], a
-	ld [$aa47], a
-	ld hl, $aa5d
+	ld [s5_AA48], a
+	ld [s5_AA47], a
+	ld hl, s5_AA5D
 	ld bc, $0011
 	call ByteFill
 	call CloseSRAM
@@ -23986,9 +23986,9 @@ Function1709aa: ; 1709aa (5c:49aa)
 Function1709bb: ; 1709bb (5c:49bb)
 	xor a
 	ld [ScriptVar], a
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$a800]
+	ld a, [s5_A800]
 	call CloseSRAM
 	cp 6
 	jr nc, .asm_1709da
@@ -24003,10 +24003,10 @@ endr
 	ld l, a
 	jp [hl]
 .asm_1709da
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	ret
 ; 1709e7 (5c:49e7)
@@ -24021,10 +24021,10 @@ Jumptable_1709e7: ; 1709e7
 ; 1709f3
 
 Function1709f3: ; 1709f3
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, $1
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 
 Function170a00: ; 170a00
@@ -24032,15 +24032,15 @@ Function170a00: ; 170a00
 ; 170a01
 
 Function170a01: ; 170a01
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $b023
+	ld hl, s5_B023
 	ld de, $c608
 	ld bc, $0069
 	call CopyBytes
-	ld a, [$a825]
+	ld a, [s5_A825]
 	ld [wcd30], a
-	ld a, [$a826]
+	ld a, [s5_A826]
 	ld [wcd31], a
 	call CloseSRAM
 	callba Function11b6b4
@@ -24058,9 +24058,9 @@ Function170a33: ; 170a33
 	ld bc, $0004
 	call CopyBytes
 	call CloseSRAM
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $b08c
+	ld hl, s5_B08C
 	ld de, $c608
 	ld c, $4
 .asm_170a54
@@ -24091,10 +24091,10 @@ Function170a33: ; 170a33
 
 .asm_170a78
 	call CloseSRAM
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld [$a800], a
+	ld [s5_A800], a
 	call CloseSRAM
 	ld [ScriptVar], a
 	ld a, [MapGroup]
@@ -24119,17 +24119,17 @@ Function170a9c: ; 170a9c (5c:4a9c)
 Function170aa0: ; 170aa0 (5c:4aa0)
 	ld c, $1
 asm_170aa2: ; 170aa2 (5c:4aa2)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, c
-	ld [$aa8d], a
+	ld [s5_AA8D], a
 	call CloseSRAM
 	ret
 
 Function170aaf: ; 170aaf (5c:4aaf)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$aa8d]
+	ld a, [s5_AA8D]
 	ld [ScriptVar], a
 	call CloseSRAM
 	ret
@@ -24157,9 +24157,9 @@ Function170ad7: ; 170ad7 (5c:4ad7)
 	ret
 
 Function170ae8: ; 170ae8 (5c:4ae8)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2fb]
+	ld a, [s5_B2FB]
 	call CloseSRAM
 	ld c, $a
 	call SimpleDivide
@@ -24169,17 +24169,17 @@ Function170ae8: ; 170ae8 (5c:4ae8)
 	ld [ScriptVar], a
 	callba Function119d93
 	ret nc
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2fb]
+	ld a, [s5_B2FB]
 	call CloseSRAM
 	ld [ScriptVar], a
 	ret
 
 Function170b16: ; 170b16 (5c:4b16)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2fb]
+	ld a, [s5_B2FB]
 	call CloseSRAM
 	ld c, 10
 	call SimpleDivide
@@ -24189,9 +24189,9 @@ Function170b16: ; 170b16 (5c:4b16)
 	ld [ScriptVar], a
 	callba Function119dd1
 	ret nc
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld a, [$b2fb]
+	ld a, [s5_B2FB]
 	call CloseSRAM
 	ld [ScriptVar], a
 	ret
@@ -24273,10 +24273,10 @@ SpecialCheckForBattleTowerRules: ; 170bd3
 ; 170be4
 
 Function170be4: ; 170be4
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	xor a
-	ld hl, $a894
+	ld hl, s5_A894
 	ld bc, $0008
 	call ByteFill
 	call CloseSRAM
@@ -24284,9 +24284,9 @@ Function170be4: ; 170be4
 ; 170bf7
 
 Function170bf7: ; 170bf7
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $a89a
+	ld hl, s5_A89A
 	xor a
 	ld [hli], a
 	ld [hl], a
@@ -24295,9 +24295,9 @@ Function170bf7: ; 170bf7
 ; 170c06
 
 Function170c06: ; 170c06
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
-	ld hl, $a894
+	ld hl, s5_A894
 	ld a, [wd0ee]
 	and a
 	jr nz, .asm_170c15
@@ -24307,10 +24307,10 @@ Function170c06: ; 170c06
 rept 2
 	inc hl
 endr
-	ld a, [$a89b]
+	ld a, [s5_A89B]
 	add [hl]
 	ld [hld], a
-	ld a, [$a89a]
+	ld a, [s5_A89A]
 	adc [hl]
 	ld [hli], a
 	jr nc, .asm_170c27
@@ -24793,10 +24793,10 @@ Function171bdc: ; 171bdc (5c:5bdc)
 	ret
 
 Function171beb: ; 171beb (5c:5beb)
-	ld a, $5
+	ld a, SRAMBANK5
 	call GetSRAMBank
 	ld a, [wcd4a]
-	ld [$aa4a], a
+	ld [s5_AA4A], a
 	call CloseSRAM
 	ld hl, MenuDataHeader_171c6b
 	call LoadMenuDataHeader
